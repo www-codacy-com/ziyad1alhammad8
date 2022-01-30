@@ -1,0 +1,17 @@
+pkg
+downloads
+workbench
+destroot
+tmp
+bundle.tar.gz
+cocoapods-plugins-install/*.gem
+app/CPReflectionService/libruby+exts.a
+.github_access_token
+gh-pages/
+
+DerivedData
+*.xcuserdatad
+*.xccheckout
+
+*.*-e
+app/CocoaPods/Ruby Integration/
