@@ -1,0 +1,34 @@
+# coding: utf-8
+platform :osx, '10.10'
+
+use_frameworks!
+
+target "CocoaPods" do
+
+  # TODO inhibiting warnings (when they're not harmful) while working on the application.
+
+  # Has 3 warnings about deprecated -[NSImage setFlipped:] API
+  pod 'Fragaria', :podspec => 'Fragaria.podspec.json', :inhibit_warnings => true
+  # Has 6 warnings about integer precision loss.
+  pod 'ANSIEscapeHelper', :podspec => 'ANSIEscapeHelper.podspec', :inhibit_warnings => true
+  pod 'Sparkle'
+  pod 'LetsMove'
+
+  target "CocoaPodsTests" do
+    inherit! :search_paths
+
+    pod 'Quick'
+    pod 'Nimble'
+  end
+end
+
+post_install do |installer|
+  # We don't need all of Fragaria's syntax definitions.
+  installer.aggregate_targets.each do |aggregate_target|
+    script = aggregate_target.copy_resources_script_path
+    content = script.read
+    content.gsub!('install_resource "Fragaria/Syntax Definitions"', '')
+    content.gsub!('install_resource "Fragaria/SyntaxDefinitions.plist"', '')
+    script.open('w') { |f| f << content }
+  end
+end
