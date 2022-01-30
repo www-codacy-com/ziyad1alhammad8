@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="R2V-B0-nI4">
+            <objects>
+                <windowController storyboardIdentifier="Podfile Editor" id="jGA-0Y-lOj" sceneMemberID="viewController">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="Ckk-yw-fiv" customClass="CPModifiedDecorationsWindow" customModule="CocoaPods" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" texturedBackground="YES" unifiedTitleAndToolbar="YES" fullSizeContentView="YES"/>
+                        <rect key="contentRect" x="550" y="405" width="586" height="660"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="586" height="250"/>
+                        <toolbar key="toolbar" implicitIdentifier="BC29192A-C84E-4096-9C9F-CA53E7B26D82" autosavesConfiguration="NO" allowsUserCustomization="NO" showsBaselineSeparator="NO" displayMode="iconAndLabel" sizeMode="regular" id="EP4-CE-9QT">
+                            <allowedToolbarItems/>
+                            <defaultToolbarItems/>
+                        </toolbar>
+                    </window>
+                    <connections>
+                        <segue destination="5gI-5U-AMq" kind="relationship" relationship="window.shadowedContentViewController" id="nsd-lR-9xd"/>
+                    </connections>
+                </windowController>
+                <customObject id="6f7-a7-6o1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-40" y="-1361"/>
+        </scene>
+        <!--Podfile View Controller-->
+        <scene sceneID="hIz-AP-VOD">
+            <objects>
+                <viewController id="5gI-5U-AMq" customClass="CPPodfileViewController" customModule="CocoaPods" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="ERx-hH-rdd">
+                        <rect key="frame" x="0.0" y="0.0" width="615" height="660"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="Md7-X2-GxU" customClass="CPBrownVisualEffectsView" customModule="CocoaPods" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="78" height="660"/>
+                                <subviews>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tXb-af-RfI" customClass="CPSideButton" customModule="CocoaPods" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="492" width="48" height="48"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_console" imagePosition="overlaps" alignment="center" refusesFirstResponder="YES" inset="2" id="Xxt-bb-qej">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showConsoleTab:" target="5gI-5U-AMq" id="aSl-EN-ciF"/>
+                                            <binding destination="TcC-X8-fEE" name="enabled" keyPath="consoleIsSelected" id="xMU-CI-Yhk">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EZ5-Q7-aZp" customClass="CPSideButton" customModule="CocoaPods" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="555" width="48" height="48"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_editor" imagePosition="only" alignment="center" refusesFirstResponder="YES" inset="2" id="jIp-ly-K6T">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showEditorTab:" target="5gI-5U-AMq" id="WLs-ih-h2d"/>
+                                            <binding destination="TcC-X8-fEE" name="enabled" keyPath="editorIsSelected" id="Ipf-br-m3k">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
+                                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Jx-vo-Lx4" customClass="CPSideButton" customModule="CocoaPods" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="427" width="48" height="48"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="icon_information" imagePosition="only" alignment="center" refusesFirstResponder="YES" inset="2" id="mww-XL-8Ss">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="showInformationTab:" target="5gI-5U-AMq" id="AoC-RV-gge"/>
+                                            <binding destination="TcC-X8-fEE" name="enabled" keyPath="infoIsSelected" id="JtH-61-LQt">
+                                                <dictionary key="options">
+                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                </dictionary>
+                                            </binding>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="78" id="LtX-g5-vc6"/>
+                                </constraints>
+                            </visualEffectView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="heY-ac-ofy" userLabel="Podfile Title BG">
+                                <rect key="frame" x="90" y="625" width="422" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="lCl-Dg-ikk"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="actionbar_background" id="Inw-FC-Y25"/>
+                            </imageView>
+                            <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A2C-cQ-r2M" userLabel="Container for the Document Icon">
+                                <rect key="frame" x="104" y="629" width="16" height="16"/>
+                            </customView>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="5f5-Xa-ani">
+                                <rect key="frame" x="78" y="0.0" width="537" height="613"/>
+                                <connections>
+                                    <segue destination="KFF-tZ-pTU" kind="embed" id="1uM-66-lzo"/>
+                                </connections>
+                            </containerView>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JCB-dL-BeV" userLabel="Install Button BG">
+                                <rect key="frame" x="527" y="625" width="76" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="19Z-xR-cnQ"/>
+                                </constraints>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" image="actionbar_background" id="ngI-l4-MuS"/>
+                            </imageView>
+                            <button horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ywo-mw-4xh">
+                                <rect key="frame" x="578" y="623" width="25" height="26"/>
+                                <buttonCell key="cell" type="disclosure" bezelStyle="roundedDisclosure" image="drop_down" imagePosition="only" alignment="center" refusesFirstResponder="YES" state="on" imageScaling="proportionallyDown" inset="2" id="g16-mA-HMr">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showInstallOptions:" target="5gI-5U-AMq" id="p7O-ix-UFp"/>
+                                    <binding destination="5gI-5U-AMq" name="enabled" keyPath="self.installAction.task.running" id="9rd-yc-J3O">
+                                        <dictionary key="options">
+                                            <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="300" translatesAutoresizingMaskIntoConstraints="NO" id="hwg-nj-RtL">
+                                <rect key="frame" x="122" y="628" width="365" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Podfile" id="UOR-9c-QMh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button horizontalHuggingPriority="500" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KFc-we-EUb">
+                                <rect key="frame" x="538" y="627" width="38" height="19"/>
+                                <buttonCell key="cell" type="roundRect" title="Install" bezelStyle="roundedRect" alignment="center" refusesFirstResponder="YES" state="on" imageScaling="proportionallyDown" inset="2" id="hie-8U-02e">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="install:" target="5gI-5U-AMq" id="gdu-yZ-kBg"/>
+                                    <binding destination="5gI-5U-AMq" name="hidden" keyPath="self.installAction.task.running" id="sTR-L3-nUU"/>
+                                </connections>
+                            </button>
+                            <imageView translatesAutoresizingMaskIntoConstraints="NO" id="mmI-O9-7Ce" userLabel="Seperator">
+                                <rect key="frame" x="580" y="629" width="1" height="16"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" animates="YES" imageScaling="proportionallyDown" image="install_separator" id="L11-Gs-HU5"/>
+                            </imageView>
+                            <progressIndicator wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" displayedWhenStopped="NO" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="4gD-5q-fqq">
+                                <rect key="frame" x="550" y="628" width="16" height="16"/>
+                                <connections>
+                                    <binding destination="5gI-5U-AMq" name="animate" keyPath="self.installAction.task.running" id="dpf-8Q-6Y9"/>
+                                </connections>
+                            </progressIndicator>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Ywo-mw-4xh" firstAttribute="leading" secondItem="JCB-dL-BeV" secondAttribute="trailing" constant="-25" id="1QW-y4-gRa"/>
+                            <constraint firstItem="heY-ac-ofy" firstAttribute="leading" secondItem="hwg-nj-RtL" secondAttribute="leading" constant="-34" id="2nk-XB-P8M"/>
+                            <constraint firstAttribute="trailing" secondItem="5f5-Xa-ani" secondAttribute="trailing" id="8ms-0x-CSc"/>
+                            <constraint firstAttribute="trailing" secondItem="hwg-nj-RtL" secondAttribute="trailing" constant="130" id="G5D-vC-8Kn"/>
+                            <constraint firstItem="Md7-X2-GxU" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" id="Nfy-M9-N65"/>
+                            <constraint firstItem="5f5-Xa-ani" firstAttribute="top" secondItem="JCB-dL-BeV" secondAttribute="bottom" constant="12" id="OoB-If-2Rw"/>
+                            <constraint firstItem="mmI-O9-7Ce" firstAttribute="centerY" secondItem="JCB-dL-BeV" secondAttribute="centerY" id="R1d-cM-P5F"/>
+                            <constraint firstItem="Ywo-mw-4xh" firstAttribute="centerY" secondItem="JCB-dL-BeV" secondAttribute="centerY" id="TRw-HO-h4C"/>
+                            <constraint firstItem="Md7-X2-GxU" firstAttribute="leading" secondItem="ERx-hH-rdd" secondAttribute="leading" id="Teg-8i-KM9"/>
+                            <constraint firstItem="JCB-dL-BeV" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="12" id="UYy-Mz-Gn0"/>
+                            <constraint firstItem="heY-ac-ofy" firstAttribute="leading" secondItem="Md7-X2-GxU" secondAttribute="trailing" constant="12" id="Vy5-h8-UQn"/>
+                            <constraint firstItem="Ywo-mw-4xh" firstAttribute="leading" secondItem="KFc-we-EUb" secondAttribute="trailing" constant="2" id="XOG-vj-gc9"/>
+                            <constraint firstAttribute="trailing" secondItem="mmI-O9-7Ce" secondAttribute="trailing" constant="34" id="YSR-Dc-Lds"/>
+                            <constraint firstItem="5f5-Xa-ani" firstAttribute="top" secondItem="heY-ac-ofy" secondAttribute="bottom" constant="12" id="aRL-46-n83"/>
+                            <constraint firstItem="hwg-nj-RtL" firstAttribute="centerY" secondItem="heY-ac-ofy" secondAttribute="centerY" id="aYA-pe-JOj"/>
+                            <constraint firstAttribute="bottom" secondItem="5f5-Xa-ani" secondAttribute="bottom" id="bLf-bF-NnC"/>
+                            <constraint firstItem="heY-ac-ofy" firstAttribute="top" secondItem="ERx-hH-rdd" secondAttribute="top" constant="12" id="cXO-av-sNX"/>
+                            <constraint firstItem="5f5-Xa-ani" firstAttribute="leading" secondItem="Md7-X2-GxU" secondAttribute="trailing" id="ct4-aP-2qI"/>
+                            <constraint firstItem="JCB-dL-BeV" firstAttribute="leading" secondItem="KFc-we-EUb" secondAttribute="trailing" constant="-49" id="eJx-rC-MeT"/>
+                            <constraint firstAttribute="trailing" secondItem="4gD-5q-fqq" secondAttribute="trailing" constant="49" id="lCC-IL-OL8"/>
+                            <constraint firstAttribute="trailing" secondItem="JCB-dL-BeV" secondAttribute="trailing" constant="12" id="uW0-o5-d86"/>
+                            <constraint firstAttribute="trailing" secondItem="Ywo-mw-4xh" secondAttribute="trailing" constant="12" id="xoO-JU-Yoe"/>
+                            <constraint firstItem="JCB-dL-BeV" firstAttribute="leading" secondItem="heY-ac-ofy" secondAttribute="trailing" constant="15" id="y1d-Lt-uHK"/>
+                            <constraint firstAttribute="bottom" secondItem="Md7-X2-GxU" secondAttribute="bottom" id="yY9-Qk-qJq"/>
+                            <constraint firstItem="4gD-5q-fqq" firstAttribute="centerY" secondItem="JCB-dL-BeV" secondAttribute="centerY" id="zTn-FC-OPf"/>
+                            <constraint firstItem="KFc-we-EUb" firstAttribute="centerY" secondItem="JCB-dL-BeV" secondAttribute="centerY" id="zm7-vC-RHL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="actionTitleLabel" destination="hwg-nj-RtL" id="doO-U4-vRA"/>
+                        <outlet property="documentIconContainer" destination="A2C-cQ-r2M" id="XjI-Gp-RjM"/>
+                        <outlet property="installMenu" destination="ipM-rO-V7M" id="TUi-D1-qEX"/>
+                        <outlet property="tabViewDelegate" destination="TcC-X8-fEE" id="rpc-oY-Jgh"/>
+                    </connections>
+                </viewController>
+                <customObject id="2Tp-Fl-jBw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="TcC-X8-fEE" customClass="CPTabViewDelegate" customModule="CocoaPods" customModuleProvider="target"/>
+                <menu id="ipM-rO-V7M">
+                    <items>
+                        <menuItem title="Update" id="PuO-f6-8qI">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="installUpdate:" target="5gI-5U-AMq" id="OpL-ZF-oye"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Install (verbose)" id="Lfp-wt-hnt">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="installVerbose:" target="5gI-5U-AMq" id="9CR-ET-Gnl"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Update (verbose)" id="XcH-g0-JId">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="installUpdateVerbose:" target="5gI-5U-AMq" id="dCA-77-Jc3"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <userDefaultsController representsSharedInstance="YES" id="LcC-8e-1XM"/>
+            </objects>
+            <point key="canvasLocation" x="-39.5" y="-508"/>
+        </scene>
+        <!--Hidden Tab View Controller-->
+        <scene sceneID="qoe-kJ-9tu">
+            <objects>
+                <tabViewController storyboardIdentifier="Podfile Content Tab Controller" selectedTabViewItemIndex="0" tabStyle="unspecified" id="KFF-tZ-pTU" customClass="CPHiddenTabViewController" customModule="CocoaPods" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem identifier="editor" id="LD4-sS-rWv"/>
+                        <tabViewItem identifier="info" id="gLn-Ae-pxb"/>
+                        <tabViewItem identifier="console" id="R0S-ss-GjB"/>
+                    </tabViewItems>
+                    <viewControllerTransitionOptions key="transitionOptions" crossfade="YES"/>
+                    <tabView key="tabView" id="qHT-LQ-YPj">
+                        <rect key="frame" x="0.0" y="-377" width="450" height="690"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems/>
+                        <connections>
+                            <outlet property="delegate" destination="KFF-tZ-pTU" id="AcI-BM-SUr"/>
+                        </connections>
+                    </tabView>
+                    <connections>
+                        <segue destination="KSf-K2-QFT" kind="relationship" relationship="tabItems" id="Oey-mK-Xjh"/>
+                        <segue destination="mRe-Ue-0Lb" kind="relationship" relationship="tabItems" id="b48-nf-1xU"/>
+                        <segue destination="hxh-b1-faZ" kind="relationship" relationship="tabItems" id="aja-OM-qZB"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="SYV-9c-xfk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="-527"/>
+        </scene>
+        <!--Project Information-->
+        <scene sceneID="MYC-t2-O4B">
+            <objects>
+                <viewController title="Project Information" id="mRe-Ue-0Lb" sceneMemberID="viewController">
+                    <view key="view" id="RpM-VO-LAG">
+                        <rect key="frame" x="0.0" y="0.0" width="512" height="600"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wMp-gc-M8Q">
+                                <rect key="frame" x="38" y="459" width="104" height="104"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSApplicationIcon" id="af5-Mc-KYA"/>
+                            </imageView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbW-6i-8GX">
+                                <rect key="frame" x="142" y="541" width="102" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name of project" id="5Ga-Sa-cxZ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5hh-Nc-DKI">
+                                <rect key="frame" x="142" y="516" width="46" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="etc etc" id="zTF-NG-VAy">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="tnQ-Tf-Ycz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1246" y="462"/>
+        </scene>
+        <!--Text View Delegate-->
+        <scene sceneID="ujT-LT-6Ml">
+            <objects>
+                <viewController title="Podfile Editor" id="KSf-K2-QFT" customClass="CPPodfileEditorViewController" customModule="CocoaPods" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Vag-St-aKl">
+                        <rect key="frame" x="0.0" y="0.0" width="512" height="600"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="8cU-n6-ob5" customClass="MGSFragariaView">
+                                <rect key="frame" x="0.0" y="0.0" width="512" height="600"/>
+                                <connections>
+                                    <outlet property="textViewDelegate" destination="KSf-K2-QFT" id="46h-Fl-LQo"/>
+                                </connections>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="8cU-n6-ob5" secondAttribute="bottom" id="Cd9-8D-A1l"/>
+                            <constraint firstItem="8cU-n6-ob5" firstAttribute="top" secondItem="Vag-St-aKl" secondAttribute="top" id="TEu-mb-IfM"/>
+                            <constraint firstItem="8cU-n6-ob5" firstAttribute="leading" secondItem="Vag-St-aKl" secondAttribute="leading" id="W8O-Zl-u0f"/>
+                            <constraint firstAttribute="trailing" secondItem="8cU-n6-ob5" secondAttribute="trailing" id="yLR-hI-yHh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="editor" destination="8cU-n6-ob5" id="whO-4g-Tul"/>
+                    </connections>
+                </viewController>
+                <customObject id="L5g-vS-Aib" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="170" y="462"/>
+        </scene>
+        <!--Console-->
+        <scene sceneID="nyS-Qf-ceO">
+            <objects>
+                <viewController title="Console" id="hxh-b1-faZ" customClass="CPPodfileConsoleViewController" customModule="CocoaPods" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="133-hW-tOB">
+                        <rect key="frame" x="0.0" y="0.0" width="512" height="600"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9i-w9-w0u">
+                                <rect key="frame" x="0.0" y="0.0" width="512" height="600"/>
+                                <clipView key="contentView" id="EeO-Vl-j8p">
+                                    <rect key="frame" x="0.0" y="0.0" width="512" height="600"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView editable="NO" importsGraphics="NO" richText="NO" selectionGranularity="word" findStyle="bar" incrementalSearchingEnabled="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" id="GuO-Ek-akK">
+                                            <rect key="frame" x="0.0" y="0.0" width="512" height="600"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="minSize" width="512" height="600"/>
+                                            <size key="maxSize" width="600" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="512" height="600"/>
+                                            <size key="maxSize" width="600" height="10000000"/>
+                                            <connections>
+                                                <binding destination="hxh-b1-faZ" name="editable" keyPath="self.editable" id="rqN-Lz-pM6"/>
+                                                <binding destination="hxh-b1-faZ" name="attributedString" keyPath="self.podfileViewController.installAction.taskAttributedString" id="WmN-Em-YRx"/>
+                                                <outlet property="delegate" destination="hxh-b1-faZ" id="pDv-ms-8kF"/>
+                                            </connections>
+                                        </textView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="C7I-cw-YLR">
+                                    <rect key="frame" x="-100" y="-100" width="512" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="gUJ-tJ-SOq">
+                                    <rect key="frame" x="496" y="0.0" width="16" height="600"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="q9i-w9-w0u" firstAttribute="top" secondItem="133-hW-tOB" secondAttribute="top" id="0ga-G9-Hr8"/>
+                            <constraint firstAttribute="trailing" secondItem="q9i-w9-w0u" secondAttribute="trailing" id="3tB-yk-udg"/>
+                            <constraint firstAttribute="bottom" secondItem="q9i-w9-w0u" secondAttribute="bottom" id="aEk-sI-oXB"/>
+                            <constraint firstItem="q9i-w9-w0u" firstAttribute="leading" secondItem="133-hW-tOB" secondAttribute="leading" id="dKs-sQ-e1m"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="GuO-Ek-akK" id="RRF-Gy-8Xg"/>
+                    </connections>
+                </viewController>
+                <customObject id="AKF-wE-sIK" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="707" y="462"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSApplicationIcon" width="128" height="128"/>
+        <image name="actionbar_background" width="250.5" height="23"/>
+        <image name="drop_down" width="7" height="5"/>
+        <image name="icon_console" width="44" height="35"/>
+        <image name="icon_editor" width="16" height="34"/>
+        <image name="icon_information" width="40" height="40"/>
+        <image name="install_separator" width="1" height="16"/>
+    </resources>
+</document>
